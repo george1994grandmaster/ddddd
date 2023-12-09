@@ -5,6 +5,7 @@ import { RootStore } from './store';
 interface DataItem {
   id: number;
   title: string;
+  src: string;
 }
 
 interface DataState {

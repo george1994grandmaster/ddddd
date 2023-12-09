@@ -1,8 +1,11 @@
 "use client";
 
+
+
 interface DataItem {
   id: number;
   title: string;
+  src: string;
 }
 
 interface DataItems {
@@ -33,6 +36,7 @@ export default function About() {
         <div key={index}>
           <span>ID: {item.id}</span>
           <span>Title: {item.title}</span>
+          
         </div>
       ))}
     </div>
