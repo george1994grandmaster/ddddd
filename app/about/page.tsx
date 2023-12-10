@@ -43,12 +43,7 @@ export default function About() {
             height={500}
             alt="Picture of the author"
           />
-          <Image
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7M5v7KGkDwEMzbFcCTggGoi_xvAaSOTfMA_FQKgtTM771mlTXx1OyQAFjGkfJKx0S7DU&usqp=CAU'
-            width={500}
-            height={500}
-            alt="Picture of the author"
-          />
+         
         </div>
       ))}
     </div>
