@@ -1,3 +1,23 @@
+import { NextResponse } from "next/server";
+import { posts } from "../../../public/posts";
+
+export async function GET(req: Request) {
+  let currentPosts = posts;
+  const { searchParams } = new URL(req.url);
+  const categoryName = searchParams.get('category');
+  const dataCount = searchParams.get('dataCount');
+ 
+  
+  if (categoryName) {
+    const categoryBlock = currentPosts.find((post: any) => categoryName in post);
+    for (const key in categoryBlock) {
+      const selectedCategory = categoryBlock[key as keyof typeof categoryBlock]?.slice(0, dataCount as any);
+      return NextResponse.json(selectedCategory);
+    }
+  }
+}
+
+
 /*import { NextResponse } from "next/server";
 import { posts } from "./posts";
 
@@ -21,23 +41,4 @@ export async function GET(req: Request) {
 }*/
 
 
-
-import { NextResponse } from "next/server";
-import { posts } from "./posts";
-
-export async function GET(req: Request) {
-  let currentPosts = posts;
-  const { searchParams } = new URL(req.url);
-  const categoryName = searchParams.get('category');
-  const dataCount = searchParams.get('dataCount');
- 
-  
-  if (categoryName) {
-    const categoryBlock = currentPosts.find((post: any) => categoryName in post);
-    for (const key in categoryBlock) {
-      const selectedCategory = categoryBlock[key as keyof typeof categoryBlock]?.slice(0, dataCount as any);
-      return NextResponse.json(selectedCategory);
-    }
-  }
-}
 

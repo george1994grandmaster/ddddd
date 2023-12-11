@@ -1,7 +1,7 @@
 "use client";
 
+import Link from 'next/link';
 import Image from 'next/image'
-import mercedes from '../../img/mercedes.png'
 
 interface DataItem {
   id: number;
@@ -33,18 +33,18 @@ export default function About() {
 
   return (
     <div>
-      {data.map((item, index) => (
-        <div key={index}>
+      {data.map((item) => (
+        
+        <Link href={`/selectedProduct/${item.id}`} key={item.id}>
           <span>ID: {item.id}</span>
           <span>Title: {item.title}</span>
           <Image
-            src='https://finder.porsche.com.tr/Assets/img/homeModel__911.png'
+            src={item.src}
             width={500}
             height={500}
             alt="Picture of the author"
           />
-         
-        </div>
+        </Link>
       ))}
     </div>
   );
